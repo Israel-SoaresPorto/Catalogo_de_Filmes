@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .title {
     background-color: cornflowerblue;
     color: white;
@@ -47,24 +51,55 @@
     padding: 5px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
 }
 
 .item {
-    text-align: center;
     padding: 10px;
-    width: 200px;
-    border: 2px solid red;
+    width: 300px;
+    height: 500px;
+    border: 2px solid cornflowerblue;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
-.item:hover {
-    background-color: rgba(0,0,0, 0.1);
-    cursor: pointer;
+.item-img {
+    width: 100%;
+    height: 70%;
 }
 
-.item img {
-    width: 100px;
+.item-img img {
+    width: 100%;
+    height: 100%;
 }
+
+.item-descricao {
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+    flex: 1;
+}
+
+.item-descricao h3 {
+    margin-bottom: 15px;
+}
+
+.item-descricao a {
+    background-color: cornflowerblue;
+    color: white;
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.item-descricao a:hover {
+    background-color: darkblue;
+}
+
+
+
+
 

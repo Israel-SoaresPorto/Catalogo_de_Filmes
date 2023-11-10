@@ -11,7 +11,7 @@ formPesquisa.onsubmit = (ev) => {
         return
     }
 
-    fetch(`https://www.omdbapi.com/?s=${pesquisa}&apikey=${apiKey}`)
+    fetch(`https://www.omdbapi.com/?s=${pesquisa}&apikey=${apiKey}&type=movie`)
         .then(result => result.json())
         .then(json => carregarLista(json))
 }
@@ -21,17 +21,29 @@ const carregarLista = (json) => {
     lista.innerHTML = ""
 
     if(json.Response == "False") {
-        alert("Nenhum filme encontrado")
+        lista.innerHTML = "<h2>Nenhum filme encontrado</h2>"
+        lista.style.color = "lightgray"
         return
     }
 
     json.Search.forEach(element => {
+
         console.log(element)
 
         let item = document.createElement("div")
         item.classList.add("item")
-        item.innerHTML = `<img src=${element.Poster} /> <h2>${element.Title}</h2>`
+
+        let itemImg = document.createElement("div")
+        itemImg.classList.add("item-img")
+        itemImg.innerHTML = `<img src="${element.Poster}" />`
+        item.appendChild(itemImg)
+
+        let itemDescricao = document.createElement("div")
+        itemDescricao.classList.add("item-descricao")
+        itemDescricao.innerHTML = `<h3>${element.Title}</h3><a href="https://www.imdb.com/title/${element.imdbID}/" target="_blank">Ver Mais</a>`
+        item.appendChild(itemDescricao)
         
         lista.appendChild(item)
+
     });
 }

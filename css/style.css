@@ -50,10 +50,11 @@ body {
     margin-top: 10px;
     padding: 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
+    flex-flow: row wrap;
     gap: 10px;
+
 }
 
 .item {
